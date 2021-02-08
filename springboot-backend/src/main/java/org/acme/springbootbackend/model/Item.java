@@ -45,10 +45,10 @@ public class Item {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getEmail() {
+	public long getCode() {
 		return inventory_code;
 	}
-	public void setEmail(long inventory_code) {
+	public void setCode(long inventory_code) {
 		this.inventory_code = inventory_code;
 	}
 
