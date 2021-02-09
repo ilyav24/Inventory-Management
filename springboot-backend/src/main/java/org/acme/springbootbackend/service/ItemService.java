@@ -22,7 +22,7 @@ public class ItemService {
     }
 
     // read one item's details
-    public Optional<Item> FindById(Long id){
+    public Optional<Item> FindById(Long id) {
         return itemRepository.findById(id);
     }
 

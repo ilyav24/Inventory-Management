@@ -15,13 +15,13 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long item_no;
 
-    
+    @Column
     private String name;
 
-    
+    @Column
     private long amount;
     
-	
+	@Column
     private long inventory_code;
 
     public Item(){}
@@ -58,6 +58,10 @@ public class Item {
 
 	public void setAmount(long amount) {
 		this.amount = amount;
+	}
+
+	public void changeAmount(long amount){
+		this.amount+=amount;
 	}
 	
 }
