@@ -15,13 +15,13 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long item_no;
 
-    @Column
+    
     private String name;
 
-    @Column
+    
     private long amount;
     
-	@Column
+	
     private long inventory_code;
 
     public Item(){}
@@ -45,10 +45,10 @@ public class Item {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getCode() {
+	public long getInventoryCode() {
 		return inventory_code;
 	}
-	public void setCode(long inventory_code) {
+	public void setInventoryCode(long inventory_code) {
 		this.inventory_code = inventory_code;
 	}
 
