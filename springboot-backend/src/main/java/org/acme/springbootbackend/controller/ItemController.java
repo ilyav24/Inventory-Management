@@ -42,7 +42,6 @@ public class ItemController {
     public @ResponseBody void updateQuantity(@PathVariable Long id, @RequestBody Long quantity) {
 
         // use isPresent to find optional item of id from the itemService.FindById
-        // function
         if (itemService.FindById(id).isPresent()) {
 
             // use .get() to get the actual object from the Optional
@@ -63,8 +62,8 @@ public class ItemController {
     // delete item by id
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
     public void deleteItem(@PathVariable Long id) {
+        
         // use isPresent to find optional item of id from the itemService.FindById
-        // function
         if (itemService.FindById(id).isPresent()) {
 
             // use .get() to get the actual object from the Optional
