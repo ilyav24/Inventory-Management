@@ -23,7 +23,7 @@ public class SpringbootBackendApplication {
 		// return a prepared Docket instance
 		return new Docket(DocumentationType.SWAGGER_2)
 			.select()
-			.paths(PathSelectors.ant("/items/*"))
+			.paths(PathSelectors.ant("/items/**"))
 			.build()
 			.apiInfo(apiDetails());
 	}

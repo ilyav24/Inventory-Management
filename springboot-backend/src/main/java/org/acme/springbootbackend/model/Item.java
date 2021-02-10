@@ -7,21 +7,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name="Items")
+@ApiModel(description = "Details about the item")
 public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(notes = "The unique number of the item")
     private long item_no;
 
     @Column
+	@ApiModelProperty(notes = "The item's name")
     private String name;
 
     @Column
+	@ApiModelProperty(notes = "The amount you have of this item")
     private long amount;
     
 	@Column
+	@ApiModelProperty(notes = "This item's inventory code")
     private long inventory_code;
 
     public Item(){}
