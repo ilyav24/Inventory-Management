@@ -1,12 +1,10 @@
 package org.acme.springbootbackend.controller;
 
-import java.lang.reflect.Field;
 import java.util.Optional;
 
 import org.acme.springbootbackend.model.Item;
 import org.acme.springbootbackend.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +39,7 @@ public class ItemController {
 
     // update quantity by id
     @RequestMapping(method = RequestMethod.PATCH, value = "/{id}")
-    public @ResponseBody void updateQuantity(@PathVariable Long id, @RequestBody Long newQuantity) {
+    public @ResponseBody void updateQuantity(@PathVariable Long id, @RequestBody Long quantity) {
 
         // use isPresent to find optional item of id from the itemService.FindById
         // function
@@ -49,8 +47,9 @@ public class ItemController {
 
             // use .get() to get the actual object from the Optional
             Item item = itemService.FindById(id).get();
-            
-            item.changeAmount(newQuantity);
+
+            // deposit or withdraw and send to service to update
+            item.changeAmount(quantity);
             itemService.updateItem(item);
         }
 
@@ -63,8 +62,23 @@ public class ItemController {
 
     // delete item by id
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
-    public void deleteItem(@RequestBody Item item) {
-        itemService.deleteItem(item);
+    public void deleteItem(@PathVariable Long id) {
+        // use isPresent to find optional item of id from the itemService.FindById
+        // function
+        if (itemService.FindById(id).isPresent()) {
+
+            // use .get() to get the actual object from the Optional
+            Item item = itemService.FindById(id).get();
+
+            // send item to service to delete
+            itemService.deleteItem(item);
+        }
+
+        // if optional is null
+        else {
+            System.out.println("Item_no not found");
+        }
+        
     }
 
 }
