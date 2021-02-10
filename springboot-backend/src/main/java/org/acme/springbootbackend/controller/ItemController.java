@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.acme.springbootbackend.model.Item;
 import org.acme.springbootbackend.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -19,6 +20,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/items")
 public class ItemController {
 
