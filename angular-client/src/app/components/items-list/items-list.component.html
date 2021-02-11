@@ -1,0 +1,39 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+    
+<div class="container">
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>ItemNo</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Inventory Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td>{{item.itemNo}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.inventoryCode}}</td>
+            <td class="text-center"><button class="btn btn-danger btn-xs" (click)="delteItem(item.itemNo)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+          </tr>
+    </tbody>
+    </table>
+    </div>
+</div>
+
+<!-- <h2>My Items</h2>
+<ul class="items">
+  <li *ngFor="let item of items">
+    <span class="badge">{{item.itemNo}}</span> {{item.name}}
+  </li>
+</ul> -->

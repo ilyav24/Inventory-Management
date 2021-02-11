@@ -50,8 +50,9 @@ public class ItemController {
     @PostMapping(value = "")
     @ApiOperation(value = "Adds one item",
     notes = "Post JSON item with name, amount, and inventory code")
-    public void addItem(@RequestBody Item item) {
+    public String addItem(@RequestBody Item item) {
         itemService.insert(item);
+        return " Added successfully ";
     }
 
     // update quantity by id
