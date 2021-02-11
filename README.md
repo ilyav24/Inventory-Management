@@ -1,11 +1,9 @@
 ﻿# Inventory-Management
- Swagger API documentation: http://localhost:8080/swagger-ui/
-
 
 Used:
 - Java
 - Spring boot
-- Swagger
+- Swagger API documentation: http://localhost:8080/swagger-ui/
 - REST API/JSON
 - Docker
 - Angular 
