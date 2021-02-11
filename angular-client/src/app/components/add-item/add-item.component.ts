@@ -13,7 +13,7 @@ export class AddItemComponent implements OnInit {
     item_no: 0,
     name: "",
     amount: 0,
-    inventory_code: 0
+    inventoryCode: 0
   }
   message: any;
 
