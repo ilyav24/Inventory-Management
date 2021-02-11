@@ -1,10 +1,14 @@
 package org.acme.springbootbackend;
 
+import java.util.Arrays;
 import java.util.Collections;
 
+import org.apache.catalina.filters.CorsFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -19,26 +23,21 @@ public class SpringbootBackendApplication {
 	}
 
 	@Bean
-	public Docket swaggerConfiguration(){
+	public Docket swaggerConfiguration() {
 		// return a prepared Docket instance
-		return new Docket(DocumentationType.SWAGGER_2)
-			.select()
-			.paths(PathSelectors.ant("/items/**"))
-			.build()
-			.apiInfo(apiDetails());
+		return new Docket(DocumentationType.SWAGGER_2).select().paths(PathSelectors.ant("/items/**")).build()
+				.apiInfo(apiDetails());
 	}
 
-	private ApiInfo apiDetails(){
-		return new ApiInfo(
-			"Inventory Manager API",
-			"API for OpenLegacy task",
-			"1.0",
-			"Free to use",
-			new springfox.documentation.service.Contact("Ilya Vogman", "https://www.linkedin.com/in/ilyavog/", "vogman@gmail.com"),
-			"API License",
-			"https://github.com/ilyav24",
-			Collections.emptyList());
-		
+	private ApiInfo apiDetails() {
+		return new ApiInfo("Inventory Manager API", "API for OpenLegacy task", "1.0", "Free to use",
+				new springfox.documentation.service.Contact("Ilya Vogman", "https://www.linkedin.com/in/ilyavog/",
+						"vogman@gmail.com"),
+				"API License", "https://github.com/ilyav24", Collections.emptyList());
+
 	}
+
+
+	
 
 }

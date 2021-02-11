@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from 'src/app/Item';
 import { ItemService } from 'src/app/services/item.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-items-list',
@@ -15,17 +13,20 @@ export class ItemsListComponent implements OnInit {
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    let resp=this.itemService.getAll();
-    resp.subscribe((data)=>this.items=data);
+    let resp = this.itemService.getAll();
+    resp.subscribe((data) => this.items = data);
   }
 
-  public deleteItem(id:number){
-    let resp= this.itemService.delete(id);
-    resp.subscribe((data)=>this.items=data);
-   }
+  public deleteItem(id: number) {
+    let resp = this.itemService.delete(id);
+    resp.subscribe((data) => this.items = data);
+  }
 
-   public updateAmount(id: number, howMuch: number ){
-     let resp = this.itemService.update(id,howMuch);
-     resp.subscribe((data)=>this.items=data);
-   }
+  public updateAmount(id: number) {
+    let howMuch: number;
+    howMuch = Number(prompt("Enter a positive or negative number:"))
+    let resp = this.itemService.update(id, howMuch);
+    resp.subscribe((data) => this.items = data);
+  }
+
 }

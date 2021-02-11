@@ -29,7 +29,7 @@ export class ItemService {
 
   // deposit or withdraw
   update(id: number, data: number): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    return this.http.patch(`${baseUrl}/${id}`, data);
   }
 
   // delete by id

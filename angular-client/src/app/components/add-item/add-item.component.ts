@@ -10,12 +10,12 @@ import { ItemService } from 'src/app/services/item.service';
 export class AddItemComponent implements OnInit {
 
   item: Item = {
-    item_no : 0,
-    name : "",
-    amount : 0,
-    inventory_code : 0
+    item_no: 0,
+    name: "",
+    amount: 0,
+    inventory_code: 0
   }
-  message:any;
+  message: any;
 
   constructor(private itemService: ItemService) { }
 
@@ -23,8 +23,8 @@ export class AddItemComponent implements OnInit {
 
   }
 
-  public addNow(){
-    let resp=this.itemService.create(this.item);
-    resp.subscribe((data)=>this.message=data);
-      }
+  public addNow() {
+    let resp = this.itemService.create(this.item);
+    resp.subscribe((data) => this.message = data);
+  }
 }
