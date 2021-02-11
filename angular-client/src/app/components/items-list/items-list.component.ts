@@ -19,8 +19,13 @@ export class ItemsListComponent implements OnInit {
     resp.subscribe((data)=>this.items=data);
   }
 
-  public delteItem(id:number){
+  public deleteItem(id:number){
     let resp= this.itemService.delete(id);
     resp.subscribe((data)=>this.items=data);
+   }
+
+   public updateAmount(id: number, howMuch: number ){
+     let resp = this.itemService.update(id,howMuch);
+     resp.subscribe((data)=>this.items=data);
    }
 }

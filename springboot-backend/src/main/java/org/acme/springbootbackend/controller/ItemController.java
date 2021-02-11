@@ -59,7 +59,7 @@ public class ItemController {
     @PatchMapping( value = "/{id}")
     @ApiOperation(value = "Withdraw or deposit",
     notes = "Have only a negative or positive number(without curly braces) depicting how much you want to deposit or withdraw")
-    public @ResponseBody void updateQuantity(@ApiParam(value = "item_no for the item you need to update", required = true)
+    public @ResponseBody Iterable<Item> updateQuantity(@ApiParam(value = "item_no for the item you need to update", required = true)
     @PathVariable Long id, 
     @ApiParam(value = "negative/positive number which needs to be deposited or withdrawn", required = true)
     @RequestBody Long quantity) {
@@ -80,6 +80,8 @@ public class ItemController {
             System.out.println("Item_no not found");
         }
 
+        return itemService.findAll();
+
     }
 
     // delete item by id
@@ -87,7 +89,7 @@ public class ItemController {
     @ApiOperation(value = "Deletes an item by id",
     notes = "Use id to delete one item in stock",
     response = Item.class)
-    public void deleteItem(@ApiParam(value = "item_no for the item you need to delete", required = true)
+    public Iterable<Item> deleteItem(@ApiParam(value = "item_no for the item you need to delete", required = true)
     @PathVariable Long id) {
         
         // use isPresent to find optional item of id from the itemService.FindById
@@ -104,6 +106,8 @@ public class ItemController {
         else {
             System.out.println("Item_no not found");
         }
+
+        return itemService.findAll();
         
     }
 
