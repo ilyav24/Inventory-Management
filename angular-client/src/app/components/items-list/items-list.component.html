@@ -15,7 +15,7 @@
             <th>ItemNo</th>
             <th>Name</th>
             <th>Amount</th>
-            <th>Inventory Code</th>
+            <th>Code</th>
         </tr>
     </thead>
     <tbody>
@@ -25,7 +25,7 @@
             <td>{{item.amount}}</td>
             <td>{{item.inventoryCode}}</td>
             <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteItem(item.itemNo)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
-            <td class="text-center"><button class="btn btn-danger btn-xs" (click)="updateAmount(item.itemNo)"><span class="glyphicon glyphicon-remove"></span> Change Amount</button></td>
+            <td class="text-center"><button class="btn btn-success btn-xs" (click)="updateAmount(item.itemNo)"><span class="glyphicon glyphicon-sort"></span> Change Amount</button></td>
           </tr>
     </tbody>
     </table>
